@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>КПРФ Феодосия | Вступай в ряды партии и комсомола</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+            background: #fff;
+            color: #1e1e1e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            background: white;
+            border-bottom: 3px solid #c72a2a;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            cursor: pointer;
+        }
+
+        .logo h1 {
+            color: #c72a2a;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 16px;
+            font-weight: 600;
+            transition: 0.2s;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .nav a:hover {
+            color: #c72a2a;
+            background: #fef0f0;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            padding: 70px 0;
+        }
+
+        .hero-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .hero-text h2 {
+            color: #c72a2a;
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero-text p {
+            color: #555;
+            font-size: 18px;
+            max-width: 580px;
+            margin-bottom: 30px;
+        }
+
+        .quote {
+            border-left: 4px solid #c72a2a;
+            background: white;
+            padding: 18px 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            font-style: italic;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .quote:hover {
+            background: #fff0f0;
+            transform: translateX(5px);
+        }
+
+        .stats {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 24px;
+            padding: 30px 35px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            min-width: 140px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(199,42,42,0.15);
+            border-color: #c72a2a;
+        }
+
+        .stat-number {
+            color: #c72a2a;
+            font-size: 38px;
+            font-weight: 800;
+        }
+
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            border-left: 5px solid #c72a2a;
+            padding-left: 24px;
+            margin-bottom: 45px;
+            color: #222;
+        }
+
+        .leadership-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .leader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: 0.2s;
+            gap: 15px;
+        }
+
+        .leader:hover {
+            background: #fef5f5;
+            padding-left: 15px;
+            border-radius: 12px;
+        }
+
+        .leader-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .leader-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #c72a2a;
+        }
+
+        .leader-name {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .leader-role {
+            color: #c72a2a;
+            font-weight: 500;
+        }
+
+        .organization-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+            gap: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .organization-card:hover {
+            background: #fef5f5;
+            padding-left: 15px;
+            border-radius: 12px;
+        }
+
+        .organization-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .org-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #c72a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .org-name {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .org-role {
+            color: #c72a2a;
+            font-weight: 500;
+        }
+
+        .note {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .note:hover {
+            background: #ffefd0;
+            transform: translateX(3px);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+            margin-top: 20px;
+        }
+
+        .join-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #f0e0e0;
+            cursor: pointer;
+        }
+
+        .join-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px rgba(199,42,42,0.12);
+        }
+
+        .card-header {
+            background: #c72a2a;
+            color: white;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-header-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .card-header h3 {
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        .card-body {
+            padding: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s;
+            margin-top: 15px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-red {
+            background: #c72a2a;
+            color: white;
+        }
+
+        .btn-red:hover {
+            background: #a11f1f;
+            transform: scale(1.02);
+        }
+
+        .btn-tg {
+            background: #0088cc;
+            color: white;
+        }
+
+        .btn-tg:hover {
+            background: #006699;
+            transform: scale(1.02);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            border: 1px solid #eee;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(199,42,42,0.12);
+            border-color: #c72a2a;
+        }
+
+        .news-content {
+            padding: 24px;
+        }
+
+        .news-date {
+            color: #c72a2a;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .news-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .contact-card {
+            background: #faf8f8;
+            border-radius: 24px;
+            padding: 28px;
+            transition: 0.2s;
+            border: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .contact-card:hover {
+            border-color: #c72a2a;
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-label {
+            color: #c72a2a;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .contact-phone {
+            font-size: 22px;
+            font-weight: 700;
+            color: #c72a2a;
+            margin: 12px 0;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .contact-phone:hover {
+            text-decoration: underline;
+        }
+
+        .contact-address-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        .contact-address-link:hover {
+            color: #c72a2a;
+            text-decoration: underline;
+        }
+
+        .info-block {
+            background: #fef4f4;
+            border-left: 4px solid #c72a2a;
+            padding: 24px;
+            border-radius: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .info-block:hover {
+            background: #ffe8e8;
+            transform: translateX(5px);
+        }
+
+        .achievements {
+            background: #fefaf5;
+        }
+
+        .achievements-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .achievement-item {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 30px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(199,42,42,0.12);
+            border: 1px solid #c72a2a;
+        }
+
+        .achievement-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #c72a2a;
+        }
+
+        .plans-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .plan-card {
+            flex: 1;
+            background: white;
+            border-radius: 24px;
+            padding: 25px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid #eee;
+            min-width: 250px;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-3px);
+            border-color: #c72a2a;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .plan-card h3 {
+            color: #c72a2a;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 45px 20px;
+            font-size: 14px;
+        }
+
+        .footer p {
+            cursor: pointer;
+            margin: 8px 0;
+        }
+
+        .footer p:hover {
+            color: #c72a2a;
+        }
+
+        .footer a {
+            color: #c72a2a;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav a {
+                margin: 0 8px;
+            }
+            .hero-text h2 {
+                font-size: 34px;
+            }
+            .leader {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .leader-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .organization-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .organization-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+            <h1>КПРФ · Феодосия</h1>
+            <p>Феодосийское городское отделение Коммунистической партии Российской Федерации</p>
+        </div>
+        <div class="nav">
+            <a href="#about">О нас</a>
+            <a href="#leadership">Руководство</a>
+            <a href="#join">Вступить в наши ряды</a>
+            <a href="#join-party">Вступить в КПРФ</a>
+            <a href="#news">Новости</a>
+            <a href="#gallery-link" id="galleryNavLink">Фотогалерея</a>
+            <a href="#contacts">Контакты</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h2>Труд, народовластие, социализм</h2>
+                <p>Феодосийские коммунисты отстаивают интересы трудового народа, сохраняют историческую память и строят будущее на принципах социальной справедливости.</p>
+                <div class="quote" onclick="window.open('http://крымкп.рф', '_blank')">
+                    «Партия остается верной своим принципам и готова к новым вызовам в борьбе за справедливость»
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-card" onclick="alert('Более 30 лет КПРФ ведет работу в Крыму, защищая права граждан с 1990-х годов.')">
+                    <div class="stat-number">30+</div>
+                    <div>лет в Крыму</div>
+                </div>
+                <div class="stat-card" onclick="alert('В Феодосийском отделении более 150 активистов, включая комсомольцев и ветеранов партии.')">
+                    <div class="stat-number">150+</div>
+                    <div>активистов</div>
+                </div>
+                <div class="stat-card" onclick="alert('Ежегодно проводится более 20 мероприятий: субботники, митинги, форумы, акции протеста.')">
+                    <div class="stat-number">20+</div>
+                    <div>мероприятий в год</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">О Феодосийском отделении</h2>
+            <p style="font-size: 18px; margin-bottom: 20px; max-width: 1000px;">Феодосийское городское отделение КПРФ ведет активную работу по защите прав граждан, участвует в социальных программах, патриотических акциях и поддерживает курс на построение социального государства. Коммунисты Феодосии регулярно проводят пленумы, встречи с молодежью и идеологическую работу.</p>
+            <p style="font-size: 18px; margin-bottom: 20px;">Особое внимание уделяется преемственности поколений, исторической памяти и интернациональному сотрудничеству. За последние годы отделение организовало более 50 социальных акций, включая помощь ветеранам, субботники и патриотические форумы.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px;">
+                <span style="background: #f0f0f0; border-radius: 40px; padding: 8px 24px; cursor: pointer;" onclick="alert('Социализм — общественный строй, основанный на справедливости, равенстве и коллективной собственности.')">Социализм</span>
+                <span style="background: #f0f0f0; border-radius: 40px; padding: 8px 24px; cursor: pointer;" onclick="alert('Народовластие — власть принадлежит народу, прямое участие граждан в управлении государством.')">Народовластие</span>
+                <span style="background: #f0f0f0; border-radius: 40px; padding: 8px 24px; cursor: pointer;" onclick="alert('Патриотизм — любовь к Родине, защита интересов Отечества, сохранение исторической памяти.')">Патриотизм</span>
+                <span style="background: #f0f0f0; border-radius: 40px; padding: 8px 24px; cursor: pointer;" onclick="alert('Справедливость — равные права, достойная оплата труда, социальные гарантии для всех.')">Справедливость</span>
+                <span style="background: #f0f0f0; border-radius: 40px; padding: 8px 24px; cursor: pointer;" onclick="alert('Дружба народов — единство всех национальностей России, братство и взаимопомощь.')">Дружба народов</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="leadership">
+        <div class="container">
+            <h2 class="section-title">Руководство</h2>
+            <div class="leadership-list">
+                <div class="leader" onclick="window.location.href='tel:+79787865155'">
+                    <div class="leader-info">
+                        <img class="leader-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23c72a2a'/%3E%3Ctext x='50' y='67' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3EФ%3C/text%3E%3C/svg%3E" alt="Фото Шпаковского">
+                        <div>
+                            <div class="leader-name">Федор Шпаковский</div>
+                            <div class="leader-role">Первый секретарь Феодосийского отделения КПРФ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="leader" onclick="window.location.href='tel:+79786739609'">
+                    <div class="leader-info">
+                        <img class="leader-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23c72a2a'/%3E%3Ctext x='50' y='67' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3EЛ%3C/text%3E%3C/svg%3E" alt="Фото Лозовенко">
+                        <div>
+                            <div class="leader-name">Александр Лозовенко</div>
+                            <div class="leader-role">Первый секретарь комсомола (ЛКСМ) Феодосии</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="leader" onclick="window.location.href='https://t.me/apoffeoz'">
+                    <div class="leader-info">
+                        <img class="leader-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23c72a2a'/%3E%3Ctext x='50' y='67' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3EД%3C/text%3E%3C/svg%3E" alt="Фото Даниила">
+                        <div>
+                            <div class="leader-name">Даниил</div>
+                            <div class="leader-role">Второй секретарь комсомола (ЛКСМ) · Резервный контакт</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="organization-card" onclick="window.location.href='tel:+79788469665'">
+                    <div class="organization-info">
+                        <div class="org-photo">КПРФ</div>
+                        <div>
+                            <div class="org-name">Крымский реском КПРФ</div>
+                            <div class="org-role">Республиканский комитет партии</div>
+                        </div>
+                    </div>
+                    <div class="contact-phone" style="margin: 0;">+7 (978) 846-96-65</div>
+                </div>
+            </div>
+            <p style="margin-top: 25px; color: #666;">Молодежное крыло партии - Ленинский коммунистический союз молодежи (ЛКСМ) - активно участвует в жизни города.</p>
+        </div>
+    </section>
+
+    <section id="join" style="background: linear-gradient(120deg, #fff5f0 0%, #ffffff 100%);">
+        <div class="container">
+            <h2 class="section-title">Вступить в наши ряды</h2>
+            <div class="cards-grid">
+                <!-- Карточка ЛКСМ (Александр Лозовенко) -->
+                <div class="join-card">
+                    <div class="card-header">
+                        <img class="card-header-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='white'/%3E%3Ctext x='50' y='67' text-anchor='middle' fill='%23c72a2a' font-size='40' font-weight='bold'%3EЛ%3C/text%3E%3C/svg%3E" alt="ЛКСМ">
+                        <div>
+                            <h3>ЛКСМ РФ</h3>
+                            <p>Комсомол — молодежное крыло партии</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p style="margin-bottom: 20px;">Возраст: <strong>14–35 лет</strong>. Молодежные субботники, патриотические форумы, развитие городской среды.</p>
+                        <p><strong>Подать заявку:</strong></p>
+                        <a href="tel:+79786739609" class="btn btn-red">📞 Александр Лозовенко: +7 (978) 673-96-09</a>
+                        <p style="margin-top: 18px; font-size: 14px; color: #666;">Кабинет: ул. Чехова, 5, БЦ "Владимир", офис 314</p>
+                        <p style="margin-top: 8px; font-size: 13px; color: #c72a2a;">Прием: ежедневно, кроме воскресенья, с 15:00 до 17:00</p>
+                    </div>
+                </div>
+                <!-- Карточка Даниила (второй секретарь) -->
+                <div class="join-card">
+                    <div class="card-header" style="background: #9e2a2a;">
+                        <img class="card-header-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='white'/%3E%3Ctext x='50' y='67' text-anchor='middle' fill='%239e2a2a' font-size='40' font-weight='bold'%3EД%3C/text%3E%3C/svg%3E" alt="Даниил">
+                        <div>
+                            <h3>ЛКСМ РФ · Второй секретарь</h3>
+                            <p>Даниил — резервный контакт комсомола</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p style="margin-bottom: 20px;">Если первый секретарь <strong>Александр Лозовенко</strong> не отвечает или вы хотите оставить заявку напрямую второму секретарю — обращайтесь к Даниилу.</p>
+                        <p><strong>Контакты:</strong></p>
+                        <a href="https://t.me/apoffeoz" target="_blank" class="btn btn-tg">📱 Telegram: @apoffeoz</a>
+                        <a href="tel:+79785852454" class="btn btn-red">📞 +7 (978) 585-24-54</a>
+                        <p style="margin-top: 18px; font-size: 14px; color: #666;">Кабинет: ул. Чехова, 5, БЦ "Владимир", офис 314</p>
+                        <p style="margin-top: 8px; font-size: 13px; color: #c72a2a;">Прием: ежедневно, кроме воскресенья, с 15:00 до 17:00 (совместно с первым секретарем)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="note" style="background: #e8f5e9; border-left-color: #4caf50; margin-top: 30px;" onclick="alert('Вступить можно в комсомол (до 35 лет) и в партию (с 18 лет). Заполнение анкеты — в кабинете 314.')">
+                📌 <strong>Вступить можно в комсомол</strong> (до 35 лет). Заполнение анкеты — в кабинете 314 или через контакты секретарей.
+            </div>
+        </div>
+    </section>
+
+    <section id="join-party">
+        <div class="container">
+            <h2 class="section-title">Вступить в КПРФ</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 35px; align-items: stretch;">
+                <div style="flex: 1.5; background: #fef4f4; border-radius: 28px; padding: 35px; cursor: pointer;" onclick="window.location.href='tel:+79787865155'">
+                    <h3 style="font-size: 28px; color: #c72a2a; margin-bottom: 20px;">Стань частью партии</h3>
+                    <p style="font-size: 17px; margin-bottom: 25px;">Коммунистическая партия Российской Федерации объединяет людей, которые хотят жить в справедливом обществе, с достойными пенсиями, бесплатным образованием и медициной.</p>
+                    <p><strong>Контакт для вступления:</strong></p>
+                    <div style="margin: 20px 0;">
+                        <a href="tel:+79787865155" class="btn btn-red" style="font-size: 18px; display: inline-block; width: auto;">📞 Федор Шпаковский: +7 (978) 786-51-55</a>
+                    </div>
+                    <p>Приемные часы: <strong>ежедневно, кроме воскресенья, с 10:00 до 12:00</strong><br>Адрес: г. Феодосия, ул. Чехова, 5, БЦ "Владимир", офис 314</p>
+                </div>
+                <div style="flex: 1; background: white; border-radius: 28px; padding: 35px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); cursor: pointer;" onclick="alert('Документы принимаются в кабинете 314. Рекомендации можно получить от действующих членов партии.')">
+                    <h3 style="margin-bottom: 20px;">Документы для вступления</h3>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li>Заявление</li>
+                        <li>Рекомендации двух коммунистов</li>
+                        <li>Автобиография</li>
+                        <li>Фотография 3×4</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 14px;">Подробности — в местном отделении.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">Новости и деятельность</h2>
+            <div class="news-grid">
+                <a href="http://крымкп.рф/novosti/plenum-feodosiyskikh-kommunistov-2025" target="_blank" class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">Ноябрь 2025</div>
+                        <div class="news-title">Пленум феодосийских коммунистов</div>
+                        <div class="news-excerpt">Проанализированы итоги молодежной работы, намечены меры по усилению агитации и привлечению новых членов партии. Принята резолюция по социальной защите пенсионеров.</div>
+                    </div>
+                </a>
+                <a href="http://крымкп.рф/novosti/sergey-bogatyrenko-prezidium-reskoma-2025" target="_blank" class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">Сентябрь 2025</div>
+                        <div class="news-title">Федор Шпаковский на Пленуме Крымского рескома</div>
+                        <div class="news-excerpt">Первый секретарь феодосийского отделения доложил о резолюции «Пенсионерам России — достойную жизнь» и задачах по выполнению решений XIX Съезда КПРФ.</div>
+                    </div>
+                </a>
+                <a href="http://крымкп.рф/novosti/avtoprobeg-sodruzhestvo-2025" target="_blank" class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">Май 2025</div>
+                        <div class="news-title">Автопробег «Содружество» в Феодосии</div>
+                        <div class="news-excerpt">У Вечного Огня коммунисты передали капсулу с крымской землей белорусским товарищам. Укрепление дружбы народов России и Беларуси — важнейший ориентир.</div>
+                    </div>
+                </a>
+                <a href="http://крымкп.рф/novosti/komsomol-subotnik-feodosiya-2025" target="_blank" class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">Август 2025</div>
+                        <div class="news-title">Молодежный субботник от ЛКСМ</div>
+                        <div class="news-excerpt">Активисты комсомола привели в порядок городские парки и памятники. В планах — экологические акции на 2026 год.</div>
+                    </div>
+                </a>
+                <a href="http://крымкп.рф/novosti/kruglyy-stol-pamyat-pokoleniy-2025" target="_blank" class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">Октябрь 2025</div>
+                        <div class="news-title">Круглый стол «Память поколений»</div>
+                        <div class="news-excerpt">Ветераны партии встретились с молодежью, чтобы обсудить сохранение исторической правды и борьбу с фальсификацией истории.</div>
+                    </div>
+                </a>
+                <a href="http://крымкп.рф/novosti/akciya-spravedlivost-dlya-kazhdogo" target="_blank" class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">Декабрь 2025</div>
+                        <div class="news-title">Акция «Справедливость для каждого»</div>
+                        <div class="news-excerpt">Коммунисты провели пикеты у администрации города с требованием индексации пенсий и поддержки многодетных семей.</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="achievements">
+        <div class="container">
+            <h2 class="section-title">Достижения и проекты</h2>
+            <div class="achievements-list">
+                <div class="achievement-item" onclick="alert('За 2025 год проведено 15 социальных акций: помощь ветеранам, субботники, пикеты, форумы.')">
+                    <div class="achievement-number">15+</div>
+                    <p>социальных акций в 2025 году</p>
+                </div>
+                <div class="achievement-item" onclick="alert('Открыто 5 новых первичных отделений в поселках городского округа Феодосия.')">
+                    <div class="achievement-number">5</div>
+                    <p>новых первичных отделений</p>
+                </div>
+                <div class="achievement-item" onclick="alert('Все молодежные мероприятия охватывают 100% участников комсомольского актива.')">
+                    <div class="achievement-number">100%</div>
+                    <p>охват молодежными форумами</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты и приемная</h2>
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="contact-label">Адрес</div>
+                    <a href="https://yandex.ru/maps/?text=Феодосия+Чехова+5" target="_blank" class="contact-address-link">
+                        <div><strong>г. Феодосия, ул. Чехова, 5</strong></div>
+                        <div>Бизнес-центр "Владимир", офис 314</div>
+                        <div style="margin-top: 8px; color: #c72a2a;">🗺️ Открыть карту</div>
+                    </a>
+                </div>
+                <div class="contact-card" onclick="window.location.href='tel:+79787865155'">
+                    <div class="contact-label">Федор Шпаковский</div>
+                    <div>Первый секретарь отделения КПРФ</div>
+                    <div class="contact-phone">+7 (978) 786-51-55</div>
+                    <div>Прием: ежедневно, кроме воскресенья, с 10:00 до 12:00</div>
+                </div>
+                <div class="contact-card" onclick="window.location.href='tel:+79786739609'">
+                    <div class="contact-label">Александр Лозовенко</div>
+                    <div>Первый секретарь комсомола (ЛКСМ)</div>
+                    <div class="contact-phone">+7 (978) 673-96-09</div>
+                    <div>Прием: ежедневно, кроме воскресенья, с 15:00 до 17:00</div>
+                </div>
+                <div class="contact-card" onclick="window.location.href='https://t.me/apoffeoz'">
+                    <div class="contact-label">Даниил (резерв)</div>
+                    <div>Второй секретарь комсомола (ЛКСМ)</div>
+                    <div class="contact-phone">+7 (978) 585-24-54</div>
+                    <div>Telegram: @apoffeoz</div>
+                    <div>Прием: ежедневно, кроме воскресенья, с 15:00 до 17:00</div>
+                </div>
+                <div class="contact-card" onclick="window.location.href='tel:+79788469665'">
+                    <div class="contact-label">Крымский реском КПРФ</div>
+                    <div>Республиканский комитет</div>
+                    <div class="contact-phone">+7 (978) 846-96-65</div>
+                </div>
+            </div>
+            <div class="info-block" onclick="alert('Адрес: ул. Чехова, 5, БЦ Владимир, офис 314. Прием: Шпаковский Ф. — 10:00–12:00, Лозовенко А. и Даниил — 15:00–17:00. Ежедневно, кроме воскресенья.')">
+                <strong>Феодосийское отделение КПРФ и ЛКСМ РФ</strong><br>
+                <strong>Адрес:</strong> ул. Чехова, 5, Бизнес-центр "Владимир", офис 314<br>
+                <strong>Прием:</strong> Шпаковский Ф. — 10:00–12:00 (ежедневно, кроме вс), Лозовенко А. и Даниил — 15:00–17:00 (ежедневно, кроме вс)<br>
+                <strong>Сайт рескома:</strong> <a href="http://крымкп.рф" target="_blank" style="color: #c72a2a;">крымкп.рф</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #faf9f9;">
+        <div class="container">
+            <h2 class="section-title">Планы на 2026 год</h2>
+            <div class="plans-grid">
+                <div class="plan-card" onclick="alert('Молодежный фестиваль «Красная весна» — творческие конкурсы, лекции, встречи с ветеранами. Планируется в мае 2026 года.')">
+                    <h3>▶ Молодежные форумы</h3>
+                    <p>Организация городского молодежного фестиваля «Красная весна».</p>
+                </div>
+                <div class="plan-card" onclick="alert('Программа включает: адресную помощь ветеранам, поддержку многодетных семей, продовольственные наборы.')">
+                    <h3>▶ Социальные инициативы</h3>
+                    <p>Программа поддержки многодетных семей и ветеранов.</p>
+                </div>
+                <div class="plan-card" onclick="alert('Планируется открытие первичек в поселках Приморский, Коктебель, Щебетовка.')">
+                    <h3>▶ Расширение сети первичек</h3>
+                    <p>Открытие новых отделений в поселках городского округа.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Феодосийское городское отделение КПРФ и ЛКСМ РФ · 2026</p>
+        <p style="margin-top: 12px;" onclick="window.location.href='https://yandex.ru/maps/?text=Феодосия+Чехова+5'">Адрес: ул. Чехова, 5, БЦ "Владимир", офис 314 | Тел. рескома: +7 (978) 846-96-65</p>
+        <p style="margin-top: 12px; font-size: 12px;">Официальный сайт Крымского рескома КПРФ: <a href="http://крымкп.рф" target="_blank" style="color: #c72a2a;">крымкп.рф</a></p>
+        <p style="margin-top: 16px; font-size: 12px; color: #888;">Разработчик: <a href="https://t.me/apoffeoz" target="_blank" style="color: #c72a2a;">@apoffeoz</a></p>
+    </div>
+</footer>
+
+<!-- ГАЛЕРЕЯ (модальное окно) -->
+<div id="galleryModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(6px);">
+    <div style="background: #111; border-radius: 32px; max-width: 1300px; width: 92%; max-height: 88%; overflow-y: auto; padding: 30px 30px 40px; position: relative; box-shadow: 0 30px 50px rgba(0,0,0,0.5); border: 1px solid rgba(199,42,42,0.3);">
+        <button id="closeGalleryBtn" style="position: sticky; top: 0; float: right; background: #c72a2a; border: none; color: white; width: 42px; height: 42px; border-radius: 50%; font-size: 26px; cursor: pointer; transition: 0.2s; z-index: 10; margin-bottom: 15px;">&times;</button>
+        
+        <h2 style="color: white; text-align: center; margin: 0 0 15px 0; font-size: 28px; font-weight: 500;">📸 Жизнь комсомола Феодосии</h2>
+        
+        <div style="background: linear-gradient(135deg, rgba(199,42,42,0.15) 0%, rgba(199,42,42,0.05) 100%); border-radius: 24px; padding: 20px 24px; margin-bottom: 35px; text-align: center; border: 1px solid rgba(199,42,42,0.3);">
+            <p style="color: #e0e0e0; font-size: 15px; margin-bottom: 12px; line-height: 1.5;">
+                📌 <strong>Это ознакомительная подборка</strong> — здесь представлены лишь несколько кадров из жизни феодосийского комсомола.
+            </p>
+            <p style="color: #cccccc; font-size: 14px; margin-bottom: 16px;">
+                Все фотографии, репортажи с мероприятий и архивные снимки вы можете найти в официальном сообществе.
+            </p>
+            <a href="https://vk.com/feo_komsomol" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #0077ff; color: white; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,119,255,0.3);">
+                <span style="font-size: 18px;">📱</span> ВКонтакте — все фото и новости
+                <span style="font-size: 14px;">→</span>
+            </a>
+            <p style="color: #888; font-size: 12px; margin-top: 14px;">Подписывайтесь, чтобы быть в курсе событий</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+            <div style="background: #1a1a1a; border-radius: 24px; overflow: hidden; transition: all 0.25s ease; cursor: pointer; border: 1px solid #2a2a2a;" onclick="window.open('https://i.postimg.cc/2jhsbkSJ/a-W-qu-KXHc-Xd-Nnw-Au-W1UJib-VINr-Ebwrs-OYXu-MJu4Imp-Pt1Yscw-M2o7-OPI-mb-Qqf-Uad-Nd90qc7Px-Kht-E7Gah.jpg', '_blank')">
+                <img src="https://i.postimg.cc/2jhsbkSJ/a-W-qu-KXHc-Xd-Nnw-Au-W1UJib-VINr-Ebwrs-OYXu-MJu4Imp-Pt1Yscw-M2o7-OPI-mb-Qqf-Uad-Nd90qc7Px-Kht-E7Gah.jpg" alt="Акция комсомола" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                <div style="padding: 15px;">
+                    <p style="color: white; font-weight: 500; margin-bottom: 4px;">Акция комсомола</p>
+                    <p style="color: #aaa; font-size: 13px;">Феодосия, 2025</p>
+                </div>
+            </div>
+            <div style="background: #1a1a1a; border-radius: 24px; overflow: hidden; transition: all 0.25s ease; cursor: pointer; border: 1px solid #2a2a2a;" onclick="window.open('https://i.postimg.cc/9XZ6RmQs/b-ULgo-GG6Rf-KXRR7Qgt0Y8IHc-J2DQUa74hg5h-Xxjhb-VNhn-Hp8f7DKt88j9Su-HU2b-Heamg-KVz-KCnw-PDG-y-TDHLXE2.jpg', '_blank')">
+                <img src="https://i.postimg.cc/9XZ6RmQs/b-ULgo-GG6Rf-KXRR7Qgt0Y8IHc-J2DQUa74hg5h-Xxjhb-VNhn-Hp8f7DKt88j9Su-HU2b-Heamg-KVz-KCnw-PDG-y-TDHLXE2.jpg" alt="Молодежный форум" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                <div style="padding: 15px;">
+                    <p style="color: white; font-weight: 500; margin-bottom: 4px;">Молодежный форум</p>
+                    <p style="color: #aaa; font-size: 13px;">Субботник ЛКСМ, 2025</p>
+                </div>
+            </div>
+            <div style="background: #1a1a1a; border-radius: 24px; overflow: hidden; transition: all 0.25s ease; cursor: pointer; border: 1px solid #2a2a2a;" onclick="window.open('https://i.postimg.cc/dQrbksVz/Xbag3anu-Wj6o-Ju-BTvf-Gw-Gif-Vq-J4MLT8Gl-QNl-WW-x2e-Tn-Wif-Ng4M4Zw-ZLf-Kwbsjw-S-v-Oht2P0tiy-Zgqo-Bs-.jpg', '_blank')">
+                <img src="https://i.postimg.cc/dQrbksVz/Xbag3anu-Wj6o-Ju-BTvf-Gw-Gif-Vq-J4MLT8Gl-QNl-WW-x2e-Tn-Wif-Ng4M4Zw-ZLf-Kwbsjw-S-v-Oht2P0tiy-Zgqo-Bs-.jpg" alt="Патриотическая акция" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                <div style="padding: 15px;">
+                    <p style="color: white; font-weight: 500; margin-bottom: 4px;">Патриотическая акция</p>
+                    <p style="color: #aaa; font-size: 13px;">Вечный огонь, Феодосия</p>
+                </div>
+            </div>
+            <div style="background: #1a1a1a; border-radius: 24px; overflow: hidden; transition: all 0.25s ease; cursor: pointer; border: 1px solid #2a2a2a;" onclick="window.open('https://i.postimg.cc/D0rHtgMj/ykmmaia-CHy4y-Tsy-Vnv-SBXG-4Fn-NPke-Ur-Jx-KMq-H-NGMWCWJ0m-On-Qtk-Kpw4cflc-Rve-Mnmc-S-ZZSt-FVMSILL1Ry.jpg', '_blank')">
+                <img src="https://i.postimg.cc/D0rHtgMj/ykmmaia-CHy4y-Tsy-Vnv-SBXG-4Fn-NPke-Ur-Jx-KMq-H-NGMWCWJ0m-On-Qtk-Kpw4cflc-Rve-Mnmc-S-ZZSt-FVMSILL1Ry.jpg" alt="Заседание актива" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                <div style="padding: 15px;">
+                    <p style="color: white; font-weight: 500; margin-bottom: 4px;">Заседание актива</p>
+                    <p style="color: #aaa; font-size: 13px;">офис 314, БЦ "Владимир"</p>
+                </div>
+            </div>
+        </div>
+        
+        <p style="text-align: center; color: #666; margin-top: 35px; font-size: 13px; border-top: 1px solid #2a2a2a; padding-top: 25px;">
+            📸 Нажмите на фото для увеличения · Все материалы — из жизни феодосийского комсомола
+        </p>
+    </div>
+</div>
+
+<script>
+    // Открытие галереи по ссылке в меню
+    const galleryLink = document.getElementById('galleryNavLink');
+    const galleryModal = document.getElementById('galleryModal');
+    const closeGalleryBtn = document.getElementById('closeGalleryBtn');
+    
+    if (galleryLink) {
+        galleryLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            galleryModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    if (closeGalleryBtn) {
+        closeGalleryBtn.addEventListener('click', function() {
+            galleryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    if (galleryModal) {
+        galleryModal.addEventListener('click', function(e) {
+            if (e.target === galleryModal) {
+                galleryModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && galleryModal && galleryModal.style.display === 'flex') {
+            galleryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+</script>
+
+</body>
+</html>
