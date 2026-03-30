@@ -401,7 +401,6 @@
             text-decoration: none;
         }
 
-        /* Модальные окна */
         .modal {
             display: none;
             position: fixed;
@@ -453,7 +452,6 @@
             border: none;
         }
 
-        /* Вкладки в личном кабинете */
         .cabinet-tabs {
             display: flex;
             gap: 10px;
@@ -493,7 +491,6 @@
             display: block;
         }
 
-        /* Формы */
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -518,7 +515,6 @@
             border: 1px solid #e0e0e0;
             border-radius: 20px;
             font-size: 14px;
-            transition: 0.2s;
             font-family: inherit;
         }
 
@@ -528,7 +524,6 @@
             box-shadow: 0 0 0 3px rgba(199,42,42,0.1);
         }
 
-        /* Карточки */
         .request-card, .notification-card, .consult-card, .appointment-card, .chat-message-card {
             background: #f9f9f9;
             border-radius: 20px;
@@ -557,7 +552,6 @@
             font-weight: 600;
         }
 
-        /* Админ-панель */
         .admin-panel {
             display: none;
             position: fixed;
@@ -866,6 +860,11 @@
         aboutText: "Феодосийское городское отделение КПРФ ведет активную работу..."
     };
 
+    // Функция проверки, является ли пользователь администратором (по флагу adminConfirmed)
+    function isAdminUser(user) {
+        return user && user.adminConfirmed === true;
+    }
+
     function saveAll() {
         localStorage.setItem('kprf_users', JSON.stringify(users));
         localStorage.setItem('kprf_requests', JSON.stringify(requests));
@@ -934,11 +933,6 @@
         } else badge.style.display = 'none';
     }
 
-    // Проверка на администратора (email + доп. пароль)
-    function isAdminUser(user) {
-        return user && user.email === 'krinichniydaniilj@gmail.com' && user.adminConfirmed === true;
-    }
-
     // ========== ЛИЧНЫЙ КАБИНЕТ ==========
     function renderCabinet() {
         const container = document.getElementById('cabinetContent');
@@ -946,6 +940,7 @@
         if(!container) return;
         if(currentUser) {
             const isAdmin = isAdminUser(currentUser);
+            const isSuperAdmin = currentUser.email === 'krinichniydaniilj@gmail.com'; // только эта почта может назначать админов
             title.innerText = `👤 Личный кабинет: ${currentUser.name || currentUser.email}`;
             const userRequests = requests.filter(r => r.userId === currentUser.email);
             const userNotifications = notifications.filter(n => n.userId === currentUser.email);
@@ -953,12 +948,15 @@
             const userChats = consultations.filter(c => c.userId === currentUser.email && c.type === 'chat');
             const userAppointments = appointments.filter(a => a.userId === currentUser.email);
             
-            // Для админа показываем дополнительные вкладки
+            // Для суперадмина добавляем вкладку назначения админов
+            const superAdminTab = isSuperAdmin ? `<button class="cabinet-tab" data-tab="assignAdmin">👑 Назначить админа</button>` : '';
+            
             const adminTabs = isAdmin ? `
                 <button class="cabinet-tab" data-tab="adminRequests">📋 Заявки (админ)</button>
                 <button class="cabinet-tab" data-tab="adminAppointments">📅 Запись на приём (админ)</button>
                 <button class="cabinet-tab" data-tab="adminChat">💬 Чат (админ)</button>
                 <button class="cabinet-tab" data-tab="adminUsers">👥 Пользователи (админ)</button>
+                ${superAdminTab}
             ` : '';
             
             container.innerHTML = `
@@ -975,6 +973,7 @@
                     <p><strong>Имя:</strong> ${currentUser.name || 'Не указано'}</p>
                     <p><strong>Email:</strong> ${currentUser.email}</p>
                     ${isAdmin ? '<p style="color:#c72a2a;"><strong>👑 Статус: Администратор</strong></p>' : ''}
+                    ${isSuperAdmin ? '<p style="color:#c72a2a;"><strong>⭐ Супер-администратор (может назначать админов)</strong></p>' : ''}
                     <button id="logoutBtn" class="btn btn-outline" style="display:inline-block; width:auto;">🚪 Выйти</button>
                 </div>
                 <div id="cabinetRequests" class="cabinet-section">
@@ -1034,6 +1033,13 @@
                 <div id="cabinetAdminUsers" class="cabinet-section">
                     <h3>👥 Пользователи</h3>
                     <div id="adminCabinetUsersList"></div>
+                </div>
+                ` : ''}
+                ${isSuperAdmin ? `
+                <div id="cabinetAssignAdmin" class="cabinet-section">
+                    <h3>👑 Назначить администратора</h3>
+                    <p>Выберите пользователя из списка, чтобы выдать ему права администратора:</p>
+                    <div id="assignAdminList"></div>
                 </div>
                 ` : ''}
             `;
@@ -1109,6 +1115,11 @@
                 renderAdminCabinetUsers();
             }
             
+            // Если суперадмин, рендерим список для назначения админов
+            if(isSuperAdmin) {
+                renderAssignAdminList();
+            }
+            
             // Вкладки
             document.querySelectorAll('.cabinet-tab').forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -1139,7 +1150,7 @@
                 const pwd = document.getElementById('loginPassword').value;
                 const user = users.find(u=>u.email===email && u.password===pwd);
                 if(user) {
-                    // Проверка на специальный админский аккаунт
+                    // Проверка на суперадминский аккаунт (ваш)
                     if(email === 'krinichniydaniilj@gmail.com') {
                         const adminPwd = prompt('🔐 Введите дополнительный пароль администратора:');
                         if(adminPwd === '1212') {
@@ -1164,6 +1175,44 @@
             });
         }
     }
+    
+    // Функция для отображения списка пользователей для назначения админов
+    function renderAssignAdminList() {
+        const container = document.getElementById('assignAdminList');
+        if(!container) return;
+        const otherUsers = users.filter(u => u.email !== 'krinichniydaniilj@gmail.com');
+        container.innerHTML = otherUsers.map(u => `
+            <div class="user-item" style="background:#f5f5f5; color:#333; margin-bottom:15px; padding:15px; border-radius:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+                <div>
+                    <p><strong>${u.name || u.email}</strong> — ${u.email}</p>
+                    <p>Статус: ${u.adminConfirmed ? '<span style="color:#4caf50;">✅ Администратор</span>' : '<span style="color:#666;">👤 Обычный пользователь</span>'}</p>
+                </div>
+                <div>
+                    ${!u.adminConfirmed ? `<button onclick="makeAdmin('${u.email}')" class="btn btn-red" style="margin:0; padding:8px 20px;">👑 Назначить админом</button>` : `<button onclick="removeAdmin('${u.email}')" class="btn btn-outline" style="margin:0; padding:8px 20px;">⭐ Снять права админа</button>`}
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    window.makeAdmin = (email) => {
+        const user = users.find(u => u.email === email);
+        if(user) {
+            user.adminConfirmed = true;
+            saveAll();
+            renderAssignAdminList();
+            alert(`Пользователь ${user.name || user.email} назначен администратором!`);
+        }
+    };
+    
+    window.removeAdmin = (email) => {
+        const user = users.find(u => u.email === email);
+        if(user) {
+            user.adminConfirmed = false;
+            saveAll();
+            renderAssignAdminList();
+            alert(`У пользователя ${user.name || user.email} сняты права администратора.`);
+        }
+    };
     
     // Админские функции в ЛК
     function renderAdminCabinetRequests() {
@@ -1192,7 +1241,7 @@
     function renderAdminCabinetUsers() {
         const container = document.getElementById('adminCabinetUsersList');
         if(!container) return;
-        container.innerHTML = users.map(u => `<div class="user-item" style="background:#f5f5f5; color:#333; margin-bottom:10px; padding:15px; border-radius:16px;"><p><strong>${u.name||u.email}</strong> — ${u.email}</p><button onclick="deleteUserFromLK('${u.email}')" style="background:#dc3545; color:white; border:none; padding:8px 16px; border-radius:30px;">🗑 Удалить</button></div>`).join('');
+        container.innerHTML = users.filter(u => u.email !== 'krinichniydaniilj@gmail.com').map(u => `<div class="user-item" style="background:#f5f5f5; color:#333; margin-bottom:10px; padding:15px; border-radius:16px;"><p><strong>${u.name||u.email}</strong> — ${u.email}</p><button onclick="deleteUserFromLK('${u.email}')" style="background:#dc3545; color:white; border:none; padding:8px 16px; border-radius:30px;">🗑 Удалить</button></div>`).join('');
     }
     
     window.answerRequestFromLK = (id, status) => {
@@ -1399,4 +1448,4 @@
     updateUI(); updateNotificationBadge();
 </script>
 </body>
-</html>
+                                                                                                                                                                                                                                                                                 </html>
